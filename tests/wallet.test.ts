@@ -5,9 +5,8 @@ test("Carteira possua um saldo total", () => { })
 test("Deve adicionar uma transação positiva na carteira", async () => {
     const input = {
         transactionId: "1",
-        transactionDate: new Date(),
+        transactionDate: Date.now(),
         transactionSource: "Inter",
-        insertedDate: new Date(),
         description: "Salario",
         value: 3000.00
     }
@@ -19,11 +18,10 @@ test("Deve adicionar uma transação positiva na carteira", async () => {
 test("Deve adicionar uma transação negativa na carteira", async () => {
     const input = {
         transactionId: "2",
-        transactionDate: new Date(),
+        transactionDate: Date.now(),
         transactionSource: "Inter",
-        insertedDate: new Date(),
         description: "Geladeira",
-        value: -3000.00
+        value: -2200.00
     }
     const response = await axios.post("http://localhost:3001/transaction", input);
     const output = response.data;
